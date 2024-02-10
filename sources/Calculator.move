@@ -3,11 +3,11 @@
 
 module calculator::calculator {
     use sui::object::{Self, UID};
-	use sui::tx_context::{Self, TxContext};
+    use sui::tx_context::{Self, TxContext};
     use sui::transfer;
 
-	struct Numbers has key {
-		id: UID,
+    struct Numbers has key {
+	id: UID,
         a: u64,
         b: u64,
 	}
