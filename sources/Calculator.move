@@ -17,30 +17,30 @@ module calculator::calculator {
         answer: u64
     }
 
-	public entry fun new(num_1: u64, num_2: u64, ctx: &mut TxContext) {
-		let numbers = Numbers {
+    public entry fun new(num_1: u64, num_2: u64, ctx: &mut TxContext) {
+        let numbers = Numbers {
             id: object::new(ctx),
             a: num_1,
             b: num_2,
-		};
+        };
         transfer::transfer(numbers, tx_context::sender(ctx));
-	}
+    }
 
-	public entry fun add(n: &Numbers, ctx: &mut TxContext) {
-		let result = Result {
+    public entry fun add(n: &Numbers, ctx: &mut TxContext) {
+        let result = Result {
             id: object::new(ctx),
             answer: n.a + n.b
         };
         transfer::transfer(result, tx_context::sender(ctx));
-	}
+    }
 
-	public entry fun sub(n: &Numbers, ctx: &mut TxContext) {
+    public entry fun sub(n: &Numbers, ctx: &mut TxContext) {
         let result = Result {
             id: object::new(ctx),
             answer: n.a - n.b
         };
         transfer::transfer(result, tx_context::sender(ctx));
-	}
+    }
 
     public entry fun mul(n: &Numbers, ctx: &mut TxContext) {
         let result = Result {
